@@ -5,7 +5,7 @@ import { readFile } from 'fs/promises';
 
 
 const ROOT_DIR = process.cwd();
-const JSON_POSTS_FILE_PATH = resolve(ROOT_DIR, 'src', 'db', 'seed', 'posts.json');
+const JSON_POSTS_FILE_PATH = resolve(ROOT_DIR, 'app', 'db', 'seed', 'posts.json');
 
 export class JsonPostRepository implements PostRepository {
   private async readFromDisc(): Promise<PostModel[]> {
