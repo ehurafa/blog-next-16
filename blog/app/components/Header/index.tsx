@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Link from "next/dist/client/link";
 
 export default function Header() {
   return(
@@ -10,7 +11,7 @@ export default function Header() {
         'lg:text-7x1/normal lg:py-12'
       )}
       >
-        <a href="#">The Blog</a>
+        <Link href="/">The Blog</Link>
       </h1>
     </header>
   )
