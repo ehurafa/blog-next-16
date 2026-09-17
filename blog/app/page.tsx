@@ -17,15 +17,23 @@ export default async function Home() {
           <Link className='w-full h-full overflow-hidden rounded-xl' href="#">
             <Image
               src="/images/bryen_1.png"
-              className="group-hover:scale-105
+              className="w-full h-full group-hover:scale-105 object-cover object-center
               transition"
               width={1200}
               height={720}
               alt="Título do Post"
+              priority
             />
           </Link>
-          <div>
-            lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+          <div className="flex flex-col gap-4 sm:justify-center">
+            <time className="text-slate-600 text-sm/tight" dateTime="2023-03-12">12/03/2023 10:00</time>
+
+            <h1 className="text-2xl/tight font-extrabold sm:text-4xl">
+              <Link href="#">Título do Post</Link>
+            </h1>
+            <p>
+              lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+            </p>
           </div>
         </section>
 
