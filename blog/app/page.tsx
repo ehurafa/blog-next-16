@@ -5,6 +5,7 @@ import { Container } from "./components/Container";
 import Header from "./components/Header";
 import Link from "next/link";
 import Image from "next/image";
+import { PostHeading } from "./components/PostHeading";
 
 export default async function Home() {
 
@@ -28,9 +29,11 @@ export default async function Home() {
           <div className="flex flex-col gap-4 sm:justify-center">
             <time className="text-slate-600 text-sm/tight" dateTime="2023-03-12">12/03/2023 10:00</time>
 
-            <h1 className="text-2xl/tight font-extrabold sm:text-4xl">
-              <Link href="#">Título do Post</Link>
-            </h1>
+
+            <PostHeading url="#" as='h1'>
+              Return
+            </PostHeading>
+
             <p>
               lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
             </p>
