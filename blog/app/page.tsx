@@ -3,9 +3,8 @@ import { SpinLoader } from "./components/SpinLoader";
 import { PostsList } from "./components/PostsList";
 import { Container } from "./components/Container";
 import Header from "./components/Header";
-import Link from "next/link";
-import Image from "next/image";
 import { PostHeading } from "./components/PostHeading";
+import { PostCoverImage } from "./components/PostCoverImage";
 
 export default async function Home() {
 
@@ -15,17 +14,20 @@ export default async function Home() {
         <Header />
 
         <section className='grid grid-cols-1 gap-8 mb-16 sm:grid-cols-2 group'>
-          <Link className='w-full h-full overflow-hidden rounded-xl' href="#">
-            <Image
-              src="/images/bryen_1.png"
-              className="w-full h-full group-hover:scale-105 object-cover object-center
-              transition"
-              width={1200}
-              height={720}
-              alt="Título do Post"
-              priority
-            />
-          </Link>
+
+          <PostCoverImage
+            linkProps={{
+              href: "#"
+            }}
+            imageProps={{
+              src: "/images/bryen_1.png",
+              width: 1200,
+              height: 720,
+              alt: "Título do Post",
+              priority: true
+            }}
+          />
+
           <div className="flex flex-col gap-4 sm:justify-center">
             <time className="text-slate-600 text-sm/tight" dateTime="2023-03-12">12/03/2023 10:00</time>
 
