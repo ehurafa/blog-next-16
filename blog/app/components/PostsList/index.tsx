@@ -6,11 +6,14 @@ export async function PostsList() {
   const posts = await postRepository.findAll();
   return(
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post) => (
+      {posts.map((post) => {
+        const postLink = `/post/${post.slug}`;
+
+        return (
           <div className='flex flex-col gap-4 group' key={post.id}>
             <PostCoverImage
               linkProps={{
-                href: `/post/${post.slug}`
+                href: postLink
               }}
               imageProps={{
                 src: post.coverImageUrl,
@@ -26,7 +29,7 @@ export async function PostsList() {
                   dateTime={post.createdAt}
                 >{post.createdAt}</time>
 
-                <PostHeading url="#">
+                <PostHeading url={postLink}>
                   {post.title}
                 </PostHeading>
 
@@ -35,7 +38,8 @@ export async function PostsList() {
                 </p>
               </div>
           </div>
-        )) }
+        )
+      }) }
     </div>
   )
 }
