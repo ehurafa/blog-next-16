@@ -7,7 +7,6 @@ import { PostFeatured } from "./components/PostFeatured";
 
 export default async function Home() {
 
-
   return (
     <Container>
         <Header />
