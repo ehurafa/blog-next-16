@@ -1,7 +1,11 @@
 import { PostCoverImage } from "../PostCoverImage";
-import { PostHeading } from "../PostHeading";
+import { PostSummary } from "../PostSummary";
+import { findAllPublicPosts } from "@/app/lib/post/queries";
 
-export function PostFeatured() {
+export async function PostFeatured() {
+  const posts = await findAllPublicPosts();
+  const post = posts[0];
+
   const slug = 'slug';
   const postLink = `/post/${slug}`;
   return (
@@ -12,26 +16,21 @@ export function PostFeatured() {
               href: postLink
             }}
             imageProps={{
-              src: "/images/bryen_1.png",
+              src: post.coverImageUrl,
               width: 1200,
               height: 720,
-              alt: "Título do Post",
+              alt: post.title,
               priority: true
             }}
           />
 
-          <div className="flex flex-col gap-4 sm:justify-center">
-            <time className="text-slate-600 text-sm/tight" dateTime="2023-03-12">12/03/2023 10:00</time>
-
-
-            <PostHeading url={postLink} as='h1'>
-              Return
-            </PostHeading>
-
-            <p>
-              lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
-            </p>
-          </div>
+          <PostSummary
+            postLink={postLink}
+            postHeading='h1'
+            createdAt={post.createdAt}
+            title={post.title}
+            excerpt={post.excerpt}
+          />
         </section>
   )
 }
