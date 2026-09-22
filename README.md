@@ -6,12 +6,12 @@ Blog pessoal construído com [Next.js](https://nextjs.org) 16 (App Router), Reac
 
 ## Stack
 
-- **Next.js 16** — App Router
+- **Next.js 16** - App Router
 - **React 19**
 - **TypeScript**
 - **Tailwind CSS 4**
-- **date-fns** — formatação de datas
-- **clsx** — composição de classes CSS
+- **date-fns** - formatação de datas
+- **clsx** - composição de classes CSS
 
 ## Estrutura do projeto
 
