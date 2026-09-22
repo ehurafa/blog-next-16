@@ -1,3 +1,4 @@
+import { formatDatetime, formatDistanceToNow } from "@/app/utils/format-datetime";
 import { postRepository } from "../../repositories/post";
 import { PostCoverImage } from "../PostCoverImage";
 import { PostHeading } from "../PostHeading";
@@ -27,7 +28,8 @@ export async function PostsList() {
                 <time
                   className="text-slate-600 text-sm/tight"
                   dateTime={post.createdAt}
-                >{post.createdAt}</time>
+                  title={formatDistanceToNow(post.createdAt)}
+                >{formatDatetime(post.createdAt)}</time>
 
                 <PostHeading url={postLink}>
                   {post.title}
