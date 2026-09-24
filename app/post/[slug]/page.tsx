@@ -1,6 +1,8 @@
+import { SinglePost } from "@/app/components/SinglePost";
+import { SpinLoader } from "@/app/components/SpinLoader";
 import { findPostBySlugCached } from "@/app/lib/post/queries";
-import notFound from "@/app/not-found";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 type PostSlugPageProps = {
   params: Promise<{ slug: string }>;
@@ -20,13 +22,11 @@ export async function generateMetadata({ params }: PostSlugPageProps): Promise<M
 export default async function PostSlugPage({ params }: PostSlugPageProps) {
   const { slug } = await params;
 
-  const post = await findPostBySlugCached(slug).catch(() => undefined);
-
-  if (!post) notFound();
-
   return (
-    <div>
-      <p>{post?.title}</p>
-  </div>
+    <Suspense fallback={<SpinLoader className="min-h-20 mb-16" />}>
+      <div>
+        <SinglePost slug={slug} />
+      </div>
+    </Suspense>
   )
 }
